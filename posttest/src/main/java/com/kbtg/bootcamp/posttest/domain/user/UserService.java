@@ -59,9 +59,9 @@ public class UserService {
         log.info("remove ticket for user: {}", userId);
         return Composer.of(userId)
                 .bind(this::userFromId)
-                .bind((user) -> removeTicketFromUser(user, ticketId))
+                .bind(user -> removeTicketFromUser(user, ticketId))
                 .bind(userRepository::save)
-                .bind(u -> ticketId)
+                .bind(user -> ticketId)
                 .get();
     }
 
