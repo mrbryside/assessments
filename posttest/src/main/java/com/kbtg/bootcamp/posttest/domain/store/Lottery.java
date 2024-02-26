@@ -6,7 +6,6 @@ import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 import lombok.*;
 
-import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -31,7 +30,7 @@ public class Lottery {
             name = "user_ticket",
             joinColumns = @JoinColumn(name = "lottery_id"),
             inverseJoinColumns = @JoinColumn(name = "user_id"))
-    private Set<User> users = new HashSet<>();
+    private Set<User> users;
 
     public Lottery setAmountFor(Integer amount) {
         this.setAmount(amount);
